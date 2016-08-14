@@ -72,15 +72,15 @@ fn main() {
             Ok(file) => file,
         };
         match file.write_all(b"conp opti\n") {
-                Err(why) => panic!("couldn't write to {}: {}", display, why.description()),
-                Ok(_) => {},
+            Err(why) => panic!("couldn't write to {}: {}", display, why.description()),
+            Ok(_) => {},
         }
 
         for line in lowidx..highidx {
             let system = "cart\n".to_string() + &cluster + &oline[line] + "\nlibrary streitzmintmire\n\n";
             match file.write_all(system.as_bytes()) {
-                    Err(why) => panic!("couldn't write to {}: {}", display, why.description()),
-                    Ok(_) => {},
+                Err(why) => panic!("couldn't write to {}: {}", display, why.description()),
+                Ok(_) => {},
             }
         }
         lowidx = lowidx + cutsize;
